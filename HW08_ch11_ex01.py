@@ -6,11 +6,16 @@
 # a string is in the dictionary.
 ###############################################################################
 # Imports
-
+import os
 
 # Body
 def store_to_dict():
-    pass
+    with open('words.txt', 'r') as f:
+    	d = dict()
+    	data = f.read().split()
+    	for i in data:
+    		d[i] = 'a'
+    	return d
 
 
 ###############################################################################

@@ -28,16 +28,45 @@ def invert_dict_old(d):
 
 
 def invert_dict_new(d):
-    pass
+    inverse = dict()
+    for key, val in d.items():
+        inverse.setdefault(val, []).append(key)
+    return inverse
 
 
 def print_hist_newest(d):
-    pass
+    l_key = sorted(d.keys())
+    for c in l_key:
+        print(c, d[c])
 
 ###############################################################################
 # INSERT COMPLETED CODE FROM HW08_ch11_ex02a BELOW: ###########################
 ###############################################################################
+pledge_histogram = {}
 
+
+def histogram_old(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+    return d
+
+
+def histogram_new(s):
+    d = dict()
+    for c in s:
+        d[c] = 1 + d.get(c, 0)
+    return d
+
+
+
+def get_pledge_list():
+    with open('pledge.txt', 'r') as f:
+        pledge_list = f.read().split()
+    return pledge_list
 
 ###############################################################################
 # INSERT COMPLETED CODE FROM HW08_ch11_ex02a BELOW: ###########################
